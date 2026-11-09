@@ -1,7 +1,14 @@
-def filter_by_type(transactions: list, operation_type: str) -> list:
-    target_type = operation_type.strip().lower()
-    return [a for a in transactions if a.get('type', '').strip().lower() == target_type]
+def filter_transactions(transactions, transaction_type=None, category=None):
+    result = []
 
-def filter_by_category(transactions: list, category: str) -> list:
-    target_category = category.strip().lower()
-    return [a for a in transactions if target_category in a.get('category', '').strip().lower()]
+    for transaction in transactions:
+
+        if transaction_type and transaction["type"] != transaction_type:
+            continue
+
+        if category and transaction["category"].lower() != category.lower():
+            continue
+
+        result.append(transaction)
+
+    return result

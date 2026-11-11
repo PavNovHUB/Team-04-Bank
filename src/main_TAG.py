@@ -1,12 +1,18 @@
-'''Первый импорт это заглушка-пример для проверки функции, он будет заменен и код из этого файла будет переписан, когда его сделает другой разработчик'''
 from data import load_data
-from total_amounts import total_by_type
-from grouping import total_by_category, income_by_category, expense_by_category
+from total_amounts import total_by_type, balance
+from grouping import total_by_category, income_by_category, expense_by_category, balance_by_category
 
-path = input("Введите путь к CSV-файлу: ") # Нужно вводить полный путь к файлу. Пример: "C:\Users\Ivan\Documents\data.csv"
+path = input("Введите путь к CSV-файлу: ")
 df = load_data(path)
 
+print("=== Итого по типам ===")
 print(total_by_type(df))
+print(f"\nБаланс: {balance(df):.2f}")
+print("\n=== Итого по категориям ===")
 print(total_by_category(df))
+print("\n=== Доходы по категориям ===")
 print(income_by_category(df))
+print("\n=== Расходы по категориям ===")
 print(expense_by_category(df))
+print("\n=== Баланс по категориям ===")
+print(balance_by_category(df))

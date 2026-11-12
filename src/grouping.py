@@ -43,4 +43,4 @@ def category_summary(df: pd.DataFrame) -> pd.DataFrame:
         "income": income,
         "expense": expense,
         "balance": bal,
-    }, index=all_cats)   
+    }, index=all_cats)
